@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title> Conference rooms </title>
 </head>
 <body>
 
@@ -10,15 +10,36 @@
     <h3> Menu: </h3>
     <h4>
         <ul>
-            <li> <a href="/rooms_list"> lista wszystkich sal </a> </li>
-            <li> <a href="/add_room"> dodaj nową salę </a> </li>
+            <li> <a href="/"> conference room list </a> </li>
+            <li> <a href="room/new"> add conference room </a> </li>
         </ul>
     </h4>
 </div>
 
+<br><br><br>
+
+<div>
+
+    {% if l_r == 0 %}
+
+        No conference rooms!
+
+    {% else %}
+
+        {% for r in rooms %}
+
+            <li> name: {{ r.name }}, capacity: {{ r.capacity }} </li>
+
+        {% endfor %}
 
 
-<footer> autorka projektu: Magdalena Żuk </footer>
+    {% endif %}
+
+</div>
+
+
+<br><br><br><br><br>
+<footer> author: Magdalena Żuk </footer>
 
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Add conference room </title>
+</head>
+<body>
+
+<div>
+    <h3> Menu: </h3>
+    <h4>
+        <ul>
+            <li> <a href="/"> conference room list </a> </li>
+            <li> <a href="/room/new"> add conference room </a> </li>
+        </ul>
+    </h4>
+</div>
+
+<br><br><br>
+
+<div>
+
+      <form method="post">
+          {% csrf_token %}
+
+          <input type="text" name="name" placeholder="conference room's name">
+          <input type="text" name="capacity" placeholder="conference room's capacity">
+<br><br>
+          <input type="checkbox" name="projector"> is there a projector?  <!-  'on' albo nie, jest domyslnie ->
+<br><br>
+          <input type="submit" value="add room">
+
+    </form>
+</div>
+
+
+
+<br><br><br><br><br><br>
+<footer> author: Magdalena Żuk </footer>
+
+</body>
+</html>
