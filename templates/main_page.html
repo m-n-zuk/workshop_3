@@ -26,10 +26,21 @@
 
     {% else %}
 
+        <h3> Conference room's list: </h3>
+
         {% for r in rooms %}
-
-            <li> name: {{ r.name }}, capacity: {{ r.capacity }} </li>
-
+        <ul>
+            <li> <h4> <a href="/room/{{ r.id }}"> {{ r.name }} </a> </h4></li>
+            <ul>
+                <li> capacity: {{ r.capacity }} </li>
+                <li> projector: {% if r.projector == True %} YES {% else %} NO {% endif %} </li>
+                <li> availability: </li>
+            </ul>
+        <br>
+            <a href="/room/modify/{{r.id}}"><input type="button" value="modify" /></a>
+            <a href="/room/delete/{{r.id}}"><input type="button" value="delete" /></a>
+            <a href="/room/modify/reserve/{{r.id}}"><input type="button" value="reserve" /></a>
+        </ul>
         {% endfor %}
 
 

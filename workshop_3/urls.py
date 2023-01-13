@@ -22,6 +22,7 @@ urlpatterns = [
     path('test/', views.Test.as_view()),
 
     path('', views.MainPage.as_view()),
-    path('room/new', views.AddRoom.as_view())
+    path('room/new', views.AddRoom.as_view()),
+    path('room/<int:id>', views.RoomView.as_view())
 
 ]

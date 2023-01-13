@@ -17,21 +17,22 @@
 </div>
 
 <br><br><br>
-
+ <font color ="red"> {{ txt }} </font> <br><br>
 <div>
-
+Add conference room: <br><br>
       <form method="post">
           {% csrf_token %}
 
           <input type="text" name="name" placeholder="conference room's name">
           <input type="text" name="capacity" placeholder="conference room's capacity">
 <br><br>
-          <input type="checkbox" name="projector"> is there a projector?  <!-  'on' albo nie, jest domyslnie ->
+          <input type="checkbox" name="projector"> is there a projector?
 <br><br>
           <input type="submit" value="add room">
 
     </form>
 </div>
+
 
 
 
