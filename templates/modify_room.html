@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <h4> MENU | | <a href="/"> conference room list</a> | | <a href="/room/new"> add conference room </a>  </h4>
+</div>
+
+<br><br><br>
+
+<div>
+    <h3> Modify room: </h3>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="text" name="name" placeholder="name" value="{{ room.name }}">
+        <input type="text" name="capacity" placeholder="capacity" value="{{ room.capacity }}">
+        <br><br>
+        <input type="checkbox" name="projector" {% if room.projector %} checked {% endif %} > is there a projector?
+<br><br>
+          <input type="submit" value="modify room">
+
+    </form>
+
+</div>
+
+<br><br><br><br><br><br>
+<footer> author: Magdalena Żuk </footer>
+
+</body>
+</html>

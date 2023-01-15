@@ -7,20 +7,14 @@
 <body>
 
 <div>
-    <h3> Menu: </h3>
-    <h4>
-        <ul>
-            <li> <a href="/"> conference room list </a> </li>
-            <li> <a href="room/new"> add conference room </a> </li>
-        </ul>
-    </h4>
+    <h4> MENU | | <a href="/"> conference room list</a> | | <a href="/room/new"> add conference room </a>  </h4>
 </div>
 
-<br><br><br>
-
+<font color ="red"> {{ txt }} </font>
+<br>
 <div>
 
-    {% if l_r == 0 %}
+    {% if rooms.count == 0 %}
 
         No conference rooms!
 
@@ -39,7 +33,7 @@
         <br>
             <a href="/room/modify/{{r.id}}"><input type="button" value="modify" /></a>
             <a href="/room/delete/{{r.id}}"><input type="button" value="delete" /></a>
-            <a href="/room/modify/reserve/{{r.id}}"><input type="button" value="reserve" /></a>
+            <a href="/room/reserve/{{r.id}}"><input type="button" value="reserve" /></a>
         </ul>
         {% endfor %}
 
