@@ -28,7 +28,7 @@
             <ul>
                 <li> capacity: {{ r.capacity }} </li>
                 <li> projector: {% if r.projector == True %} YES {% else %} NO {% endif %} </li>
-                <li> availability: </li>
+                <li> availability: {% if today in r.reservation_set %} NO {% else %} YES {% endif %} </li>
             </ul>
         <br>
             <a href="/room/modify/{{r.id}}"><input type="button" value="modify" /></a>

@@ -20,7 +20,11 @@
         <li> projector: {% if r.projector == True %} YES {% else %} NO {% endif %} </li>
     </ul>
     <h4> reservations: </h4>
-
+    <ul>
+    {% for r in res %}
+            <li> {{ r.date }} - {{ r.comment }} </li>
+    {% endfor %}
+    </ul>
 
 </div>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> Add conference room </title>
+    <title>Title</title>
 </head>
 <body>
 
@@ -11,23 +11,24 @@
 </div>
 
  <font color ="red"> {{ txt }} </font> <br><br>
+
+<h3> Reservation in {{ room.name }}: </h3>
+
 <div>
-Add conference room: <br><br>
       <form method="post">
           {% csrf_token %}
 
-          <input type="text" name="name" placeholder="conference room's name">
-          <input type="number" name="capacity" placeholder="conference room's capacity">
-<br><br>
-          <input type="checkbox" name="projector"> is there a projector?
-<br><br>
-          <input type="submit" value="add room">
+          Select a date of reservation:
+          <input type="date" name="date"> <br><br>
+          Add comment:<br>
+          <textarea class="form-control" id="comment" name="comment"></textarea>
 
-    </form>
+
+<br><br>
+          <input type="submit" value="reserve the room">
+      </form>
+
 </div>
-
-
-
 
 <br><br><br><br><br><br>
 <footer> author: Magdalena Żuk </footer>

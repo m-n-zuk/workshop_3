@@ -26,6 +26,6 @@ urlpatterns = [
     path('room/<int:id>', views.RoomView.as_view()),
     path('room/delete/<int:id>', views.RoomDelete.as_view()),
     path('room/modify/<int:id>', views.ModifyRoom.as_view()),
-    path('room/modify/<int:id>', views.ModifyRoom.as_view())
+    path('room/reserve/<int:id>', views.RoomReservation.as_view())
 
 ]

@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render, redirect, HttpResponse
 from django.views import View
 from application.models import *
@@ -17,7 +19,7 @@ class MainPage(View):
 
         rooms = Room.objects.order_by('name')
 
-        return render(request, 'main_page.html', {'rooms': rooms})
+        return render(request, 'main_page.html', {'rooms': rooms, 'today': datetime.date.today()})
 
 
 class AddRoom(View):
@@ -115,10 +117,26 @@ class ModifyRoom(View):
 class RoomReservation(View):
 
     def get(self, request, id):
-        pass
+
+        room = Room.objects.get(id=id)
+
+        return render(request, 'room_reservation.html', {'room': room})
 
     def post(self, request, id):
-      pass
+
+        date = request.POST['date']
+        comment = request.POST['comment']
+        room = Room.objects.get(id=id)
+
+        if date < str(datetime.date.today()):
+            return render(request, 'room_reservation.html', {'txt': "The date is past!"})
+
+        if Reservation.objects.filter(date=date, room_id=id):
+            return render(request, 'room_reservation.html', {'txt': "The room is reserved already!"})
+
+        Reservation.objects.create(room_id=room, date=date, comment=comment)
+
+        return redirect('/')
 
 
 class RoomView(View):
@@ -126,7 +144,8 @@ class RoomView(View):
     def get(self, request, id):
 
         room = Room.objects.get(id=id)
+        reservation = Reservation.objects.filter(room_id=room, date__gte=datetime.date.today()).order_by('date')
 
-        return render(request, 'room.html', {'room': room})
+        return render(request, 'room.html', {'room': room, 'res': reservation})
 
 
