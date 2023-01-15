@@ -112,6 +112,15 @@ class ModifyRoom(View):
             return render(request, 'add_room.html', {'txt': txt})
 
 
+class RoomReservation(View):
+
+    def get(self, request, id):
+        pass
+
+    def post(self, request, id):
+      pass
+
+
 class RoomView(View):
 
     def get(self, request, id):
